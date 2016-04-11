@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TemplateProject</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="cancel">取消</string>
+    <string name="apply">应用</string>
+</resources>

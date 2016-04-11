@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!--  设置背景色图像资源  -->
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="8.0dip" />
+
+            <gradient
+                android:angle="270.0"
+                android:endColor="#EEEEEE"
+                android:startColor="#EEEEEE" />
+        </shape>
+    </item>
+
+
+    <!--  设置进度条颜色图像资源  -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="0.0dip" />
+
+                <gradient
+                    android:angle="270.0"
+                    android:centerColor="#7fff00"
+                    android:endColor="#7fff00"
+                    android:startColor="#7fff00" />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>

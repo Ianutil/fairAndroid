@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/margin_45"
+    android:id="@+id/layout_title"
+    android:background="@color/green_01">
+
+    <LinearLayout
+        android:id="@+id/btn_left"
+        android:layout_width="@dimen/margin_45"
+        android:layout_height="match_parent"
+        android:background="@drawable/btn_selector_01"
+        android:gravity="center"
+        android:onClick="backOnClick">
+
+        <ImageView
+            android:id="@+id/icon_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_back" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/title_style"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:singleLine="true"
+        android:ellipsize="middle"/>
+
+    <LinearLayout
+        android:id="@+id/btn_right"
+        android:layout_width="@dimen/margin_45"
+        android:layout_height="match_parent"
+        android:background="@drawable/btn_selector_01"
+        android:gravity="center"
+        android:onClick="nextOnClick">
+
+        <ImageView
+            android:id="@+id/icon_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_back" />
+
+    </LinearLayout>
+
+</LinearLayout>

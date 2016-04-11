@@ -1,0 +1,92 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'com.android.library'
+
+apply plugin: 'android-aspectj'
+buildscript {
+
+    repositories {
+        maven{url "http://repo1.maven.org/maven2"}
+    }
+
+    dependencies {
+        classpath 'com.uphyca.gradle:gradle-android-aspectj-plugin:0.9.12'
+    }
+}
+
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.ian.android.templateproject"
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 多渠道打包
+//    productFlavors {
+//        _default{}
+//        xiaomi {}
+//        _360 {}
+//        wandoujia {}
+//        baidu {}
+//        uc {}
+//
+//        productFlavors.all { flavor ->
+//            flavor.manifestPlaceholders = [MARKET_CHANNEL_VALUE: name]
+//        }
+//
+//    }
+
+//    android.applicationVariants.all { variant ->//获取 variant 参数，就是 productFlavor x buildType
+//        variant.outputs.each { output ->//获取输出文件
+//            def file = output.outputFile//修改实例
+//            output.outputFile = new File(
+//                    (String) file.parent,
+//                    (String) file.name.replace(
+//                            file.name,
+//                            // alter this string to change output file name
+//                            "Your_Apk_Name_" + variant.name + "_" + variant.versionName + ".apk"
+//                    )
+//            )
+//        }
+//    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.2.0'
+
+    // Protocol Buffer libs
+//    compile 'com.googlecode.protobuf-java-format:protobuf-java-format:1.2'
+//    compile 'com.google.protobuf:protobuf-java:2.5.0'
+}
+
+// 上传本地项目库插件
+apply plugin: 'maven'
+repositories {
+    jcenter()
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://192.168.2.181:8988/nexus/index.html") {
+                authentication(userName: "admin", password: "j1pwd123")
+            }
+            pom.version = '1.0.0'
+            pom.groupId = 'com.j1.android.http'
+            pom.artifactId = 'J1HTTP'
+            pom.packaging = 'aar'
+        }
+    }
+}
